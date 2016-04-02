@@ -1,0 +1,39 @@
+{
+  "name": "fudgecms",
+  "version": "1.0.0",
+  "description": "meanless cms ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "testfudge"
+  },
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "^4.13.4",
+    "jade": "~1.11.0",
+    "mongoose": "^4.4.10",
+    "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hellplex/FudgeCMS.git"
+  },
+  "keywords": [
+    "fudge",
+    "cms",
+    "mean",
+    "mongodb",
+    "expressjs",
+    "angular",
+    "nodejs"
+  ],
+  "author": "Cristina Suarez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hellplex/FudgeCMS/issues"
+  },
+  "homepage": "https://github.com/hellplex/FudgeCMS#readme"
+}

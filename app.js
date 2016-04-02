@@ -27,6 +27,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Add cookie-parser module for session management and encryption (installed separately from express, it used to be bundled)
+app.use(cookieParser());
 
 // Creating routes to the API
 var api = require('./routes/api');

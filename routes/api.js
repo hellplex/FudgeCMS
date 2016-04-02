@@ -98,4 +98,19 @@ router.get('/pages/admin-details/:id', function(request, response) {
 });
 
 
+/* RETRIEVE the page contents for the frontend. 
+We will use the URL as a parameter to fetch the data because we would like our 
+frontend to show SEO-friendly URLs. */
+
+router.get('/pages/details/:url', function(request, response) {
+    var url = request.params.url;
+    Page.findOne({
+        url: url
+    }, function(err, page) {
+        if (err)
+            return console.log(err);
+        return response.send(page);
+    });
+});
+
 module.exports = router;

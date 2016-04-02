@@ -10,6 +10,12 @@ var users = require('./routes/users');
 
 var app = express();
 
+// Loading Mongoose Library and connecting to the MongoDB. This is to deal with MongoDB using schemas
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/fudgecms');
+var db = mongoose.connecetion;
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

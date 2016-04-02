@@ -1,7 +1,7 @@
 {
   "name": "fudgecms",
   "version": "1.0.0",
-  "description": "meanless cms ",
+  "description": "meanless cms",
   "main": "index.js",
   "scripts": {
     "start": "node ./bin/www",

@@ -15,7 +15,6 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/fudgecms');
 var db = mongoose.connecetion;
 
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -28,8 +27,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+// Creating routes to the API
+var api = require('./routes/api');
+app.use('/api', api);  // This must be alway before   app.use('/', routes). This will ensure that the /api routes get higher priority than the others.;  
+
 app.use('/', routes);
 app.use('/users', users);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

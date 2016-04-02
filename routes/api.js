@@ -7,7 +7,11 @@ var adminUser= require('../models/admin-users.js');
 // Include the bcrypt module to hash the password before storing into the database
 var bcrypt = require('bcrypt-nodejs');
 
-
+/* Check the user sessions */
+function sessionCheck(request,response,next){
+    if(request.session.user) next();
+        else response.send(401,'authorization failed');
+}
 
 /* //////  CRUD ROUTES with REST http Requests [Create,Retrieve,Update,Delete // POST,GET,PUT,DELETE] \\\\\\\\\\ */
 
@@ -73,7 +77,7 @@ router.post('/pages/add', function(request, response) {
 
 /* 4. UPDATE an existing entry */
 
-router.post('/pages/update', function(request, response) {
+router.post('/pages/update', sessionCheck, function(request, response) {
     var id = request.body._id;
 
     Page.update({
@@ -93,7 +97,7 @@ router.post('/pages/update', function(request, response) {
 
 /* 5. DELETE an existing entry */
 
-router.get('/pages/delete/:id', function(request, response) {
+router.get('/pages/delete/:id', sessionCheck, function(request, response) {
     var id = request.params.id;
     Page.remove({
         _id: id
@@ -106,7 +110,7 @@ router.get('/pages/delete/:id', function(request, response) {
 
 /* 6. RETRIEVE the data for an individual page on the admin side. */
 
-router.get('/pages/admin-details/:id', function(request, response) {
+router.get('/pages/admin-details/:id', sessionCheck, function(request, response) {
     var id = request.params.id;
     Page.findOne({
         _id: id
@@ -214,6 +218,5 @@ router.get('/logout', function(request, response) {
 
     });
 });
-
 
 module.exports = router;

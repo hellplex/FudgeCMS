@@ -1,10 +1,5 @@
 # FudgeCMS
-FudgeCMS is a version of the famous Fudge Web Generator built from Scratch without MEAN frameworks (either io or js)
-
-
-
-# GoalApp
-Practice project: Personal Goals tracker.
+FudgeCMS is a version of the famous Fudge.io Web Generator built from Scratch without MEAN frameworks (either io or js)
 
 
 ```

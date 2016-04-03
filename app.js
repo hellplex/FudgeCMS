@@ -24,11 +24,14 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Add cookie-parser module for session management and encryption (installed separately from express, it used to be bundled)
-app.use(cookieParser());
+// Add cookie-parser module for session management and encryption (installed separately from express, it used to be in bundle)
+app.use(cookieParser('secret'));
+
+// Instantiate session
+var session = require('express-session');
+app.use (session());
 
 // Creating routes to the API
 var api = require('./routes/api');

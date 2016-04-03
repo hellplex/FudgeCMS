@@ -3,8 +3,8 @@ angular.module('myApp.services', [])
 
 
 /* Factory to communicate with the backend web services, that will do the CRUD operations. */
-.factory('pagesFactory', ['$http', 
-  function($http) {
+
+.factory('pagesFactory', ['$http', function($http) {
 
     return {
       getPages: function() {
@@ -34,4 +34,17 @@ angular.module('myApp.services', [])
       },
     };
   }
-]);
+])
+
+/* Authentication Factory */
+
+.factory('AuthService', ['$http', function($http) {
+  return {
+    login: function(credentials) {
+      return $http.post('/api/login', credentials);
+    },
+    logout: function() {
+      return $http.get('/api/logout');
+    }
+  };
+}]);

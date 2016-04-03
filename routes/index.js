@@ -6,4 +6,13 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+
+/* Define the routes in our ExpressJS app for routes to be managed by AngularJS, 
+except for those that start with a/api/
+
+Catch-all route */
+router.get('*', function(request, response) {
+    response.sendfile('./public/index.html');
+});
+
 module.exports = router;

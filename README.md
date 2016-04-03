@@ -17,7 +17,7 @@ FudgeCMS is a JavaScript full-stack learning project, to build a web generator u
 
 MEAN stands for:
 
-- *M*ongoDB**. NoSQL Database (plus Mongoose for adding schemas and features to noSQL DB)
+- **MongoDB**. NoSQL Database (plus Mongoose for adding schemas and features to noSQL DB)
 - **ExpressJS**. Node server framework, for routing and middleware 
 - **AngularJS**. Front-end framework for building Single Page Application, (plus Boostrap for CSS)
 - **Node.JS**. Server side evironment using JavaScript, based on Chrome's V8 engine

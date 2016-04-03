@@ -13,8 +13,6 @@
                    |___/                  
 ```
 
-# FudgeCMS
-
 FudgeCMS is a JavaScript full-stack learning project, to build a web generator using the MEAN stack.MEAN stands for:
 
 - MongoDB. NoSQL Database (plus Mongoose for adding schemas and features to noSQL DB)

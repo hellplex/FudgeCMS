@@ -31,7 +31,17 @@ app.use(cookieParser('secret'));
 
 // Instantiate session
 var session = require('express-session');
-app.use (session());
+app.use (session({
+/*
+    secret: cookie_secret,
+    name: cookie_name,
+    store: sessionStore, // connect-mongo session store
+    proxy: true,
+    */
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+}));
 
 // Creating routes to the API
 var api = require('./routes/api');

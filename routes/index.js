@@ -12,7 +12,7 @@ except for those that start with a/api/
 
 Catch-all route */
 router.get('*', function(request, response) {
-    response.sendfile('./public/index.html');
+    response.sendFile('./public/index.html');
 });
 
 module.exports = router;

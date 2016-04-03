@@ -10,8 +10,8 @@ angular.module('myApp', [
   'myApp.services',
   'myApp.directives',
   'myApp.controllers',
-  'ngCookies'
-
+  'ngCookies',
+  'message.flash'
 ])
 /*  -- Orgiginal Config (using # in url) --- 
 .config(['$routeProvider', function($routeProvider) {

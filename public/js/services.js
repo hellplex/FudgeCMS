@@ -1,6 +1,6 @@
 'use strict';
-angular.module('myApp.services', [])
 
+angular.module('myApp.services', [])
 
 /* Factory to communicate with the backend web services, that will do the CRUD operations. */
 

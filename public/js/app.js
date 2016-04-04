@@ -27,7 +27,6 @@ angular.module('myApp', [
 }]);*/
 
 
-/**/
 .config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
 
@@ -43,9 +42,22 @@ angular.module('myApp', [
             templateUrl: 'partials/admin/add-edit-page.html',
             controller: 'AddEditPageCtrl'
         });
-        $routeProvider.otherwise({
-            redirectTo: '/'
+
+        $routeProvider.when('/:url', {
+            templateUrl: 'partials/page.html',
+            controller: 'PageCtrl'
         });
+
+        $routeProvider.otherwise({
+            redirectTo: '/home'
+        });
+
         $locationProvider.html5Mode(true);
     }
-]);
+])
+
+/* Interceptor */
+
+.config(function ($httpProvider) {
+    $httpProvider.interceptors.push('myHttpInterceptor');
+});

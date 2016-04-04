@@ -13,7 +13,7 @@ var app = express();
 // Loading Mongoose Library and connecting to the MongoDB. This is to deal with MongoDB using schemas
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/fudgecms');
-var db = mongoose.connecetion;
+var db = mongoose.connection;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

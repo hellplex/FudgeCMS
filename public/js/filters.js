@@ -6,6 +6,7 @@
 
 angular.module('myApp.filters', [])
   .filter('formatURL', [
+
     function() {
       return function(input) {
         var url = input.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
@@ -14,4 +15,5 @@ angular.module('myApp.filters', [])
 
       };
     }
+    
 ]);

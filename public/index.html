@@ -17,28 +17,40 @@
   <link rel="stylesheet" href="css/app.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
-<body>
-  <ul class="menu">
+<body ng-controller="AppCtrl">
+ 
+
+<ul class="menu">
+    <li><a href="/">home</a></li>
     <li><a href="/view1">view1</a></li>
     <li><a href="/view2">view2</a></li>
     <li><a href="/admin/pages">pages</a></li>
     <li><a href="/admin/login">login</a></li>
-  </ul>
+</ul>
 
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <!-- Place holder for system messages  -->
+  <div class="container">
 
-  <div message-flash> </div>
+      <header>
+          <img ng-src="{{site.logo}}">
+      </header>
+      <div message-flash></div>
+      
+      <div admin-login class="col-md-3 pull-right"></div>
 
-  <div class="container" ng-view></div>
+      <div class="row">
+          <div class="col-md-3" nav-bar></div>
+          <div class="col-md-6" ng-view></div>
+      </div>
+      <footer>{{site.footer}}</footer>
+  </div>
 
 
 
-
-  <small>Angular seed app: v<span app-version></span></small>
+  <!--- <small>Angular seed app: v<span app-version></span></small> -->
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>

@@ -73,6 +73,7 @@ Necessary dependencies: Besides $scope and $log, we need to inject $routeparams 
         $scope.heading = "Add a New Page";
 
         /*  Check if page ID being passed is 0, to ADD or the MongoDB-generated ID to EDIT */
+        
         if ($scope.pageContent._id !== 0) {
           $scope.heading = "Update Page";
           pagesFactory.getAdminPageContent($scope.pageContent._id).then(
@@ -106,3 +107,38 @@ Necessary dependencies: Besides $scope and $log, we need to inject $routeparams 
         }
     }
 ])
+
+.controller('AppCtrl', ['$scope','AuthService','flashMessageService','$location',function($scope,AuthService,flashMessageService,$location) {
+        $scope.site = {
+            logo: "img/fudgecms-logo.png",
+            footer: "2016 Fudge CMS"
+        };
+
+        $scope.logout = function() {
+          AuthService.logout().then(
+            function() {
+
+              $location.path('/admin/login');
+              flashMessageService.setMessage("Successfully logged out");
+
+            }, function(err) {
+                console.log('there was an error tying to logout');
+            });
+        };
+    }
+])
+
+.controller('PageCtrl', ['$scope','pagesFactory', '$routeParams', '$sce', function($scope, pagesFactory, $routeParams,$sce) {
+      var url = $routeParams.url;
+      if(!url) url="home";
+
+      pagesFactory.getPageContent(url).then(
+        function(response) {
+          $scope.pageContent = {};
+          $scope.pageContent.title = response.data.title;
+          $scope.pageContent.content = $sce.trustAsHtml(response.data.content);
+
+        }, function() {
+            console.log('error fetching data');
+    });
+}])

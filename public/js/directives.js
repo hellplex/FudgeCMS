@@ -4,6 +4,8 @@
 
 angular.module('myApp.directives', [])
 
+
+/*  Navigation bar directive */
 .directive('navBar', [
   function() {
     return {
@@ -30,6 +32,9 @@ angular.module('myApp.directives', [])
 
       };
 }])
+
+
+/* Admin login directive */
 
 .directive('adminLogin', [
   function() {

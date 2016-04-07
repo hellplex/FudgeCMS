@@ -1,55 +1,64 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+/*  *********   WELCOME TO FUDGE CMS   *********
 
+This is the core controller of the app from the back-end poit of view, 
+Here we manage general settins and connection with the Database. 
+*/
+
+/*  Setting up the objects and variables for geneal settings   */
+
+var express = require('express');
+var cookieParser = require('cookie-parser');
+var path = require('path');
+var logger = require('morgan');
+var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
 var app = express();
+/* Add cookie-parser module for session management and encryption (installed separately from express, it used to be in bundle) */
+app.use(cookieParser('whysosecret'));
 
-// Loading Mongoose Library and connecting to the MongoDB. This is to deal with MongoDB using schemas
+/*   ***  CONNECTIC TO DATABASE   ** 
+Loading Mongoose Library and connecting to the MongoDB. 
+This library is very handy to deal with MongoDB using schemas */
+
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/fudgecms');
 var db = mongoose.connection;
 
-// view engine setup
+
+/* View engine setup */
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+/* Setting up favicon */
+var favicon = require('serve-favicon');
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+
+/* Parse utilities from express  */
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Add cookie-parser module for session management and encryption (installed separately from express, it used to be in bundle)
-app.use(cookieParser('secret'));
 
-// Instantiate session
+/* Instantiate session */
 var session = require('express-session');
 app.use (session({
-/*
-    secret: cookie_secret,
-    name: cookie_name,
-    store: sessionStore, // connect-mongo session store
-    proxy: true,
-    */
-    secret: 'secret',
+    secret: 'whysosecret',
     resave: true,
     saveUninitialized: true
 }));
 
-// Creating routes to the API
-var api = require('./routes/api');
-app.use('/api', api);  // This must be alway before   app.use('/', routes). This will ensure that the /api routes get higher priority than the others.;  
 
+// Creating routes to the REST API
+var api = require('./routes/api');
+
+app.use('/api', api);     /* This must be alway before app.use('/', routes). 
+                          to ensure /api routes get higher priority than the others.;  */
 app.use('/', routes);
 app.use('/users', users);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -58,10 +67,12 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-// error handlers
 
-// development error handler
-// will print stacktrace
+/*  Error handlers
+
+  Development error handler
+  will print stacktrace */
+
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
@@ -72,8 +83,9 @@ if (app.get('env') === 'development') {
   });
 }
 
-// production error handler
-// no stacktraces leaked to user
+/*  Production error handler
+  No stacktraces leaked to user */
+
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {
@@ -81,6 +93,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 module.exports = app;

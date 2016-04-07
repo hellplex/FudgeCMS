@@ -1,3 +1,14 @@
+<div ng-if=loggedInUser>
+    Welcome {{loggedInUser}} |  <a href="admin/pages">My Admin</a> | <a href ng-click='logout()'>Logout</a>
+</div>
+
+<div ng-if=!loggedInUser>
+    loggedInUser does not exist  <br/>
+
+    Welcome: {{credentials.username}}    
+</div>
+
+
 <a href="/admin/add-edit-page/0" class="btn btn-success pull-right"> Add New Page</a>
 <h1>Pages List</h1>
 <hr/>

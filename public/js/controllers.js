@@ -5,6 +5,43 @@
 angular.module('myApp.controllers', [])
 
 
+/* Controller for static pages for creating static Angular pages */
+
+.controller('View1Ctrl', function() {
+
+})
+
+.controller('View2Ctrl', function() {
+
+})
+
+.controller('View3Ctrl', function() {
+})
+
+
+/*  App controller   */
+
+.controller('AppCtrl', ['$scope','AuthService','flashMessageService','$location',function($scope,AuthService,flashMessageService,$location) {
+        $scope.site = {
+            logo: "img/fudgecms-logo.png",
+            footer: "2016 Fudge CMS"
+        };
+
+        $scope.logout = function() {
+          AuthService.logout().then(
+            function() {
+
+              $location.path('/admin/login');
+              flashMessageService.setMessage("Successfully logged out");
+
+            }, function(err) {
+                console.log('there was an error tying to logout');
+            });
+        };
+    }
+])
+
+
 /* Admin section controller */
 
 .controller('AdminPagesCtrl', ['$scope', '$log', 'pagesFactory',
@@ -108,25 +145,8 @@ Necessary dependencies: Besides $scope and $log, we need to inject $routeparams 
     }
 ])
 
-.controller('AppCtrl', ['$scope','AuthService','flashMessageService','$location',function($scope,AuthService,flashMessageService,$location) {
-        $scope.site = {
-            logo: "img/fudgecms-logo.png",
-            footer: "2016 Fudge CMS"
-        };
 
-        $scope.logout = function() {
-          AuthService.logout().then(
-            function() {
-
-              $location.path('/admin/login');
-              flashMessageService.setMessage("Successfully logged out");
-
-            }, function(err) {
-                console.log('there was an error tying to logout');
-            });
-        };
-    }
-])
+/* Page controller for display content.  */
 
 .controller('PageCtrl', ['$scope','pagesFactory', '$routeParams', '$sce', function($scope, pagesFactory, $routeParams,$sce) {
       var url = $routeParams.url;
@@ -141,4 +161,4 @@ Necessary dependencies: Besides $scope and $log, we need to inject $routeparams 
         }, function() {
             console.log('error fetching data');
     });
-}])
+}]);

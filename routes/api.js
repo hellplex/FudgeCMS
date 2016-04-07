@@ -26,6 +26,7 @@ function sessionCheck(request,response,next){
     08. Create Admin user                       /add-user
     09. CREATE Login                            /login
     10. LOGOUT                                  /logout
+    11. AUTHENTICATION                          /register
 */
 
 
@@ -56,6 +57,7 @@ router.post('/pages/add', function(request, response) {
 	
 	/* Create a new instance of our page object and pass the request parameters from our post data. */
     var page = new Page({
+        /*_id: new ObjectId(), > trying to fix the bug  */
         title: request.body.title,
         url: request.body.url,
         content: request.body.content,
@@ -65,6 +67,7 @@ router.post('/pages/add', function(request, response) {
  
     /* Call the save method, which does the actual task of saving this data into the collection. */
     page.save(function(err) {
+        console.log('err', err);
         if (!err) {
             return response.send(200, page);
 

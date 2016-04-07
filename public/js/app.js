@@ -2,19 +2,39 @@
 
 // Declare app level module which depends on views, and inject components
 angular.module('myApp', [
+  'ngCookies',
   'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
   'myApp.version',
   'myApp.filters',
   'myApp.services',
   'myApp.directives',
   'myApp.controllers',
   'ui.tinymce',
-  'ngCookies',
   'message.flash'
 ])
-/*  -- Orgiginal Config (using # in url) --- 
+
+
+/*  Example of components
+
+angular.module('meanbaseApp', [
+  // 'extensions',
+  'ngCookies',
+  'ngResource',
+  'ngSanitize',
+  'ui.router',
+  'ui.bootstrap',
+  'ngCropper',
+  'angularFileUpload',
+  'ngTouch',
+  'extensions',
+  'ng-sortable',
+  'toastr',
+  'relativeDate',
+  'ngAnalytics'
+])
+*/
+
+/*  -- Orgiginal Route to static page view1  (using # in url) --- 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/view1'});
 }]);*/
@@ -30,6 +50,27 @@ angular.module('myApp', [
 .config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
 
+
+      /*  Routes to Statics  */
+
+        $routeProvider.when('/view1', {
+          templateUrl: 'partials/static/view1.html',
+          controller: 'View1Ctrl'
+        });
+
+        $routeProvider.when('/view2', {
+          templateUrl: 'partials/static/view2.html',
+          controller: 'View2Ctrl'
+        });
+
+        $routeProvider.when('/view3', {
+          templateUrl: 'partials/static/view3.html',
+          controller: 'View3Ctrl'
+        });
+
+
+      /*  Routes to Admin  */
+
         $routeProvider.when('/admin/login', {
             templateUrl: 'partials/admin/login.html',
             controller: 'AdminLoginCtrl'
@@ -42,6 +83,8 @@ angular.module('myApp', [
             templateUrl: 'partials/admin/add-edit-page.html',
             controller: 'AddEditPageCtrl'
         });
+
+      /*  Routes to Page List  */
 
         $routeProvider.when('/:url', {
             templateUrl: 'partials/page.html',

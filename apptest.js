@@ -8,9 +8,14 @@ var app = express();
 // must use cookieParser before expressSession
 app.use(cookieParser());
 
-app.use(expressSession({secret:'somesecrettokenhere'}));
+app.use(expressSession({
+  secret:'whysosecret',
+  resave: true,
+  saveUninitialized: true
+}));
 
-app.use(bodyParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', function(req, res){
   var html = '<form action="/" method="post">' +

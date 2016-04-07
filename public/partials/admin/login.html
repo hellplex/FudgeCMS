@@ -1,10 +1,16 @@
-<h1>Login</h1>
-<hr/>
-
 <div ng-if=loggedInUser>
     Welcome {{loggedInUser}} |  <a href="admin/pages">My Admin</a> | <a href ng-click='logout()'>Logout</a>
 </div>
 
+<div ng-if=!loggedInUser>
+    loggedInUser does not exist  <br/>
+
+    User typing: {{credentials.username}}    
+</div>
+
+
+<h1>Login</h1>
+<hr/>
 
 <form role="form" id="login" ng-submit="login(credentials)">
 

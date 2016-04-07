@@ -5,7 +5,7 @@
 angular.module('myApp.directives', [])
 
 
-/*  Navigation bar directive */
+/*  Navigation bar directive  */
 .directive('navBar', [
   function() {
     return {
@@ -28,7 +28,7 @@ angular.module('myApp.directives', [])
             });
           }
         },
-        templateUrl: 'partials/directives/nav.html'
+        templateUrl: 'partials/directives/page-nav.html'
 
       };
 }])

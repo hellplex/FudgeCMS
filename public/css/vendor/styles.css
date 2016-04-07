@@ -1,0 +1,11 @@
+.navbar-brand {
+  height: 80px;
+}
+
+
+
+@media (min-width: 768px) {
+  .side-nav {
+    top: 81px;
+  }
+}

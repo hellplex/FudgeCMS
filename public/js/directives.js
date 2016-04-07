@@ -45,4 +45,18 @@ angular.module('myApp.directives', [])
       templateUrl: 'partials/directives/admin-login.html'
     };
   }
-]);
+])
+
+
+
+/* Main App Navigation */
+
+.directive('appNav',function(){
+  return {
+      templateUrl:'partials/directives/app-nav.html',
+      restrict: 'A'
+    }
+});
+
+
+

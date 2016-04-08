@@ -39,3 +39,16 @@
     top: 81px;
   }
 }
+
+
+.demoslabel {
+  border-top: solid 1px #000;
+  color: #FFF;
+  font-size: 1.2em;
+  margin-top: 20px;
+  padding: 12px 0 0 16px;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+

@@ -1,7 +1,7 @@
 /*  *********   WELCOME TO FUDGE CMS   *********
 
-This is the core controller of the app from the back-end poit of view, 
-Here we manage general settins and connection with the Database. 
+This is the App's main back-end controller, 
+Here we state server-side settings and establish connection with the Database. 
 */
 
 /*  Setting up the objects and variables for geneal settings   */

@@ -10,7 +10,8 @@ angular.module('myApp', [
   'myApp.directives',
   'myApp.controllers',
   'ui.tinymce',
-  'message.flash'
+  'message.flash',
+  "xeditable" 
 ])
 
 
@@ -79,7 +80,7 @@ angular.module('meanbaseApp', [
         });
 
         $routeProvider.when('/bootstrap-grid', {
-          templateUrl: 'partials/static/bootstrap-grif.html',
+          templateUrl: 'partials/static/bootstrap-grid.html',
           controller: 'bootstrapGrCtrl'
         });
 
@@ -119,4 +120,10 @@ angular.module('meanbaseApp', [
 
 .config(function ($httpProvider) {
     $httpProvider.interceptors.push('myHttpInterceptor');
+})
+
+
+/* Inline editing */
+.run(function(editableOptions) {
+  editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
 });

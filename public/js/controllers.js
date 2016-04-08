@@ -7,24 +7,15 @@ angular.module('myApp.controllers', [])
 
 /* Controller for static pages for creating static Angular pages */
 
-.controller('View1Ctrl', function() {
-
-})
-
-.controller('View2Ctrl', function() {
-
-})
-
-.controller('View3Ctrl', function() {
-})
-
-.controller('View3Ctrl', function() {
-})
-
 .controller('HomeCtrl', function() {
 })
 
-
+/* Inline editing Controller */
+.controller('inlineCtrl', function($scope) {
+  $scope.user = {
+    demotxt: 'Change me inline!'
+  };  
+})
 
 /*  App controller   */
 
@@ -118,7 +109,7 @@ Necessary dependencies: Besides $scope and $log, we need to inject $routeparams 
 
         /*  Check if page ID being passed is 0, to ADD or the MongoDB-generated ID to EDIT */
         
-        if ($scope.pageContent._id !== 0) {
+        if ($scope.pageContent._id != 0) {
           $scope.heading = "Update Page";
           pagesFactory.getAdminPageContent($scope.pageContent._id).then(
               function(response) {

@@ -51,4 +51,9 @@
   width: 100%;
 }
 
-
+.fudgehome {
+  position: absolute;
+  bottom: 0px;
+  right: -10%;
+}
+.fudgehome img {width: 50%;}

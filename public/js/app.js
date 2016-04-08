@@ -59,6 +59,12 @@ angular.module('meanbaseApp', [
           controller: 'HomeCtrl'
         });
 
+        $routeProvider.when('/dashboard', {
+          templateUrl: 'partials/static/dashboard.html',
+          controller: 'DashboardCtrl'
+        });
+
+
         $routeProvider.when('/charts', {
           templateUrl: 'partials/static/charts.html',
           controller: 'ChartsCtrl'
@@ -91,6 +97,10 @@ angular.module('meanbaseApp', [
         $routeProvider.when('/admin/login', {
             templateUrl: 'partials/admin/login.html',
             controller: 'AdminLoginCtrl'
+        });
+        $routeProvider.when('/admin/settings', {
+            templateUrl: 'partials/admin/settings.html',
+            controller: 'SettingsCtrl'
         });
         $routeProvider.when('/admin/pages', {
             templateUrl: 'partials/admin/pages.html',

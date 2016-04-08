@@ -1,3 +1,31 @@
+<!--  small pages fix  -->
+<style>
+html, body, #wrapper, #page-wrapper {
+  height: 100%;
+}
+</style>
+
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Pages
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+            </li>
+            <li class="active">
+                <i class="fa fa-fw fa-file"></i> Pages 
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<!--  Place holder for system messages -->
+<div message-flash></div>
+
 <div ng-if=loggedInUser>
     Welcome {{loggedInUser}} |  <a href="admin/pages">My Admin</a> | <a href ng-click='logout()'>Logout</a>
 </div>

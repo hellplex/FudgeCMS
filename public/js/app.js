@@ -53,20 +53,36 @@ angular.module('meanbaseApp', [
 
       /*  Routes to Statics  */
 
-        $routeProvider.when('/view1', {
-          templateUrl: 'partials/static/view1.html',
-          controller: 'View1Ctrl'
+        $routeProvider.when('/home', {
+          templateUrl: 'partials/static/home.html',
+          controller: 'HomeCtrl'
         });
 
-        $routeProvider.when('/view2', {
-          templateUrl: 'partials/static/view2.html',
-          controller: 'View2Ctrl'
+        $routeProvider.when('/charts', {
+          templateUrl: 'partials/static/charts.html',
+          controller: 'ChartsCtrl'
         });
 
-        $routeProvider.when('/view3', {
-          templateUrl: 'partials/static/view3.html',
-          controller: 'View3Ctrl'
+        $routeProvider.when('/tables', {
+          templateUrl: 'partials/static/tables.html',
+          controller: 'TablesCtrl'
         });
+
+        $routeProvider.when('/forms', {
+          templateUrl: 'partials/static/forms.html',
+          controller: 'FormsCtrl'
+        });
+
+        $routeProvider.when('/bootstrap-elements', {
+          templateUrl: 'partials/static/bootstrap-elements.html',
+          controller: 'bootstrapElCtrl'
+        });
+
+        $routeProvider.when('/bootstrap-grid', {
+          templateUrl: 'partials/static/bootstrap-grif.html',
+          controller: 'bootstrapGrCtrl'
+        });
+
 
 
       /*  Routes to Admin  */

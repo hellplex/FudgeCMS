@@ -18,12 +18,19 @@ angular.module('myApp.controllers', [])
 .controller('View3Ctrl', function() {
 })
 
+.controller('View3Ctrl', function() {
+})
+
+.controller('HomeCtrl', function() {
+})
+
+
 
 /*  App controller   */
 
 .controller('AppCtrl', ['$scope','AuthService','flashMessageService','$location',function($scope,AuthService,flashMessageService,$location) {
         $scope.site = {
-            logo: "img/fudgecms-logo.png",
+            logo: "img/fudgecms-logo2.png",
             footer: "2016 Fudge CMS"
         };
 

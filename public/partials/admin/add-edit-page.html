@@ -23,12 +23,9 @@
 <h1>{{heading}}</h1>
 <hr/>
 
-<!--  Place holder for system messages -->
-<div message-flash></div>
-
 <form role="form" id="add-page" ng-submit="savePage()">
 
-	<div class="form-group">
+	<div class="form-group" ng-if="pageContent._id != 0">
 		<label>Page ID</label>
 		<input class="form-control" type="text" readonly ng-model="pageContent._id"/>
 	</div>

@@ -53,7 +53,23 @@
 
 .fudgehome {
   position: absolute;
-  bottom: 0px;
-  right: -10%;
+  bottom: 3%;
+  right: 3%;
 }
-.fudgehome img {width: 50%;}
+
+
+
+[nav-bar] {
+  border: solid 1px #FFF;
+  position: absolute;
+  top: 0px;
+  right: 30%;
+  z-index: 10000;
+}
+[message-flash] {
+  background-color: #FFFFFF;
+  z-index: 100000;
+}
+.container-fluid{
+  padding-top: 50px;
+}

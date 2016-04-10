@@ -19,9 +19,6 @@
 </div>
 <!-- /.row -->
 
-<!--  Place holder for system messages -->
-<div message-flash></div>
-
 <div ng-if=loggedInUser>
     Welcome {{loggedInUser}} |  <a href="admin/pages">My Admin</a> | <a href ng-click='logout()'>Logout</a>
 </div>
@@ -49,7 +46,7 @@
 
   <tr ng-repeat="page in allPages">
     <td>{{page.menuIndex}}</td>
-    <td>{{page.title}}</td>
+    <td><a href="{page.url}}">{{page.title}}</a></td>
     <td>{{page.url}}</td>
     <td> <a ng-href="/admin/add-edit-page/{{page._id}}">Edit</a>
     </td>
